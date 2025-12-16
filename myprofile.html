@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sarthak Jha | Web Developer</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: {
+              500: '#38bdf8'
+            }
+          },
+          boxShadow: {
+            soft: '0 18px 45px rgba(15,23,42,0.75)',
+          },
+          keyframes: {
+            'fade-up': {
+              '0%': { opacity: '0', transform: 'translateY(10px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+          },
+          animation: {
+            'fade-up': 'fade-up 0.5s ease-out both',
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100">
+
+  <!-- Navigation -->
+  <header id="site-header" class="fixed top-0 inset-x-0 z-30 transition-all duration-300">
+    <nav class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-2">
+        <!-- Avatar in navbar -->
+        <img
+          src="https://cdn.discordapp.com/attachments/988710285806305300/1447615482470334564/20251106_225810.jpg?ex=6938447a&amp;is=6936f2fa&amp;hm=2f1a7485e84ad7c445294a4bc2007941656a124b6239331a6002a11cc91709f4&amp;"
+          alt="Sarthak"
+          class="w-9 h-9 rounded-full object-cover border border-slate-700"
+        />
+        <span class="font-semibold tracking-wide text-sm md:text-base">
+          Sarthak Jha
+        </span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="hidden md:flex items-center gap-6 text-xs md:text-sm">
+        <li><a href="#about" class="hover:text-accent-500">About</a></li>
+        <li><a href="#skills" class="hover:text-accent-500">Skills</a></li>
+        <li><a href="#experience" class="hover:text-accent-500">Experience</a></li>
+        <li><a href="#projects" class="hover:text-accent-500">Projects</a></li>
+        <li><a href="#examples" class="hover:text-accent-500">Live examples</a></li>
+        <li><a href="#education" class="hover:text-accent-500">Education</a></li>
+        <li><a href="#contact" class="hover:text-accent-500">Contact</a></li>
+      </ul>
+
+      <!-- Mobile menu button -->
+      <button
+        id="menu-toggle"
+        class="md:hidden text-xs border border-slate-600 px-3 py-1 rounded-lg"
+      >
+        Menu
+      </button>
+    </nav>
+
+    <!-- Mobile dropdown -->
+    <div
+      id="mobile-menu"
+      class="md:hidden hidden border-t border-slate-800 bg-slate-950/95 backdrop-blur"
+    >
+      <ul class="max-w-5xl mx-auto px-4 py-3 flex flex-col gap-2 text-sm">
+        <li><a href="#about" class="block py-1 hover:text-accent-500">About</a></li>
+        <li><a href="#skills" class="block py-1 hover:text-accent-500">Skills</a></li>
+        <li><a href="#experience" class="block py-1 hover:text-accent-500">Experience</a></li>
+        <li><a href="#projects" class="block py-1 hover:text-accent-500">Projects</a></li>
+        <li><a href="#examples" class="block py-1 hover:text-accent-500">Live examples</a></li>
+        <li><a href="#education" class="block py-1 hover:text-accent-500">Education</a></li>
+        <li><a href="#contact" class="block py-1 hover:text-accent-500">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="pt-20 pb-16">
+    <!-- Hero -->
+    <section id="home" class="max-w-5xl mx-auto px-4 py-10 md:py-16 animate-fade-up">
+      <div class="flex flex-col md:flex-row gap-8 md:items-center">
+        <div class="flex-1">
+          <p class="text-xs uppercase tracking-[0.2em] text-accent-500 mb-3">
+            Web developer & student
+          </p>
+          <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">
+            I build dark, clean websites and learn backend on the side.
+          </h1>
+          <p class="text-sm md:text-base text-slate-300 mb-6 max-w-xl">
+            I’m Sarthak, a 10th grade student who spends a lot of time breaking and
+            rebuilding layouts. I like simple, readable designs and projects that
+            feel like real products, not just tutorial clones.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a
+              href="#contact"
+              class="inline-flex justify-center items-center px-6 py-2.5 rounded-xl text-sm font-medium
+                     bg-accent-500 text-slate-950 hover:bg-accent-500/90 transition-colors"
+            >
+              Contact me
+            </a>
+            <a
+              href="#projects"
+              class="inline-flex justify-center items-center px-6 py-2.5 rounded-xl text-sm font-medium
+                     border border-slate-600 text-slate-100 hover:border-accent-500 hover:text-accent-500 transition-colors"
+            >
+              View projects
+            </a>
+          </div>
+
+          <div class="mt-6 text-xs text-slate-400">
+            <span class="uppercase tracking-[0.2em] text-slate-500">Current stack</span>
+            <div class="flex flex-wrap gap-2 mt-2">
+              <span class="px-3 py-1 rounded-full bg-slate-900 border border-slate-700">HTML</span>
+              <span class="px-3 py-1 rounded-full bg-slate-900 border border-slate-700">CSS / Tailwind</span>
+              <span class="px-3 py-1 rounded-full bg-slate-900 border border-slate-700">JavaScript</span>
+              <span class="px-3 py-1 rounded-full bg-slate-900 border border-slate-700">Node.js (learning)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-1 flex justify-center md:justify-end">
+          <div class="relative w-40 h-40 md:w-52 md:h-52">
+            <div class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-accent-500/60 to-pink-500/50 blur-2xl opacity-60"></div>
+            <!-- Main portrait -->
+            <img
+              src="https://cdn.discordapp.com/attachments/988710285806305300/1447615482470334564/20251106_225810.jpg?ex=6938447a&amp;is=6936f2fa&amp;hm=2f1a7485e84ad7c445294a4bc2007941656a124b6239331a6002a11cc91709f4&amp;"
+              alt="Sarthak portrait"
+              class="relative w-full h-full rounded-3xl object-cover border border-slate-700 shadow-soft"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="max-w-5xl mx-auto px-4 py-10">
+      <h2 class="text-xl md:text-2xl font-semibold mb-3">About</h2>
+      <p class="text-sm md:text-base text-slate-300 mb-4">
+        I started with basic HTML and CSS and slowly moved into Tailwind and more
+        structured layouts. Most of my learning comes from actually building
+        things: landing pages, small dashboards, and now a few backend-connected
+        projects.
+      </p>
+      <p class="text-sm md:text-base text-slate-300 mb-4">
+        I like interfaces that stay out of the way, where the content and data are
+        clear. Dark themes, clean typography, and sections that feel balanced are
+        usually what I aim for.
+      </p>
+      <p class="text-sm md:text-base text-slate-300">
+        I’m still early in my journey, but I’m serious about improving and using
+        these skills in internships, freelance work, or any projects where I get
+        to work with people who actually ship things.
+      </p>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="max-w-5xl mx-auto px-4 py-10">
+      <h2 class="text-xl md:text-2xl font-semibold mb-4">Skills</h2>
+      <div class="grid gap-6 md:grid-cols-3 text-sm">
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4">
+          <h3 class="font-semibold mb-2 text-slate-100">Languages</h3>
+          <ul class="space-y-1 text-slate-300">
+            <li>HTML & CSS</li>
+            <li>JavaScript (ES6 basics)</li>
+            <li>Basic C / C++</li>
+          </ul>
+        </div>
+
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4">
+          <h3 class="font-semibold mb-2 text-slate-100">Frameworks & tools</h3>
+          <ul class="space-y-1 text-slate-300">
+            <li>Tailwind CSS</li>
+            <li>Responsive layouts</li>
+            <li>Basic Node.js & Express</li>
+            <li>SQLite (for small projects)</li>
+            <li>Git & GitHub</li>
+          </ul>
+        </div>
+
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4">
+          <h3 class="font-semibold mb-2 text-slate-100">Focus areas</h3>
+          <ul class="space-y-1 text-slate-300">
+            <li>Clean structure and spacing</li>
+            <li>Reusable sections and components</li>
+            <li>Making frontend and backend match</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="max-w-5xl mx-auto px-4 py-10">
+      <h2 class="text-xl md:text-2xl font-semibold mb-4">Experience</h2>
+      <p class="text-sm text-slate-400 mb-4">
+        No official job titles yet, but I treat these projects as real practice
+        for how production work feels.
+      </p>
+
+      <div class="space-y-4">
+        <article class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 md:p-5">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
+            <div>
+              <h3 class="font-semibold text-sm md:text-base">
+                Web template building and layout practice
+              </h3>
+              <p class="text-xs text-slate-400">
+                Self-initiated · 2025
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1 text-[11px] text-slate-300">
+              <span class="px-2 py-0.5 rounded-full bg-slate-800">HTML</span>
+              <span class="px-2 py-0.5 rounded-full bg-slate-800">Tailwind</span>
+              <span class="px-2 py-0.5 rounded-full bg-slate-800">Responsive</span>
+            </div>
+          </div>
+          <ul class="text-xs md:text-sm text-slate-300 space-y-1.5">
+            <li>• Built multiple landing page and portfolio layouts from scratch.</li>
+            <li>• Practiced creating consistent navbars, heroes, pricing and contact sections.</li>
+            <li>• Focused on structure that is easy to reuse for different projects.</li>
+          </ul>
+        </article>
+
+        <article class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 md:p-5">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
+            <div>
+              <h3 class="font-semibold text-sm md:text-base">
+                Backend-ready demo projects
+              </h3>
+              <p class="text-xs text-slate-400">
+                Node.js practice · 2025
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1 text-[11px] text-slate-300">
+              <span class="px-2 py-0.5 rounded-full bg-slate-800">Node.js</span>
+              <span class="px-2 py-0.5 rounded-full bg-slate-800">Express</span>
+              <span class="px-2 py-0.5 rounded-full bg-slate-800">SQLite</span>
+            </div>
+          </div>
+          <ul class="text-xs md:text-sm text-slate-300 space-y-1.5">
+            <li>• Set up a small authentication system with signup, login and a protected dashboard.</li>
+            <li>• Used SQLite for storing users and bcrypt for password hashing.</li>
+            <li>• Connected static front-end layouts with real backend routes and logic.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="max-w-5xl mx-auto px-4 py-10">
+      <h2 class="text-xl md:text-2xl font-semibold mb-4">Projects</h2>
+      <p class="text-sm text-slate-400 mb-6">
+        These are the main projects that combine the layouts I build with backend
+        or can be used directly as templates.
+      </p>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        <!-- Frontend collection -->
+        <article class="bg-slate-900/60 border border-slate-800 rounded-2xl overflow-hidden flex flex-col">
+          <div class="h-40 bg-slate-800">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT56T53Cfy9QBAPKIdeohmOfc7a5ZJrR5DOSfNcd19E3w&s=10"
+              alt="Landing templates preview"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-4 flex flex-col gap-2 flex-1">
+            <h3 class="font-semibold text-sm md:text-base">Landing page templates</h3>
+            <p class="text-xs md:text-sm text-slate-300">
+              A collection of dark and clean landing pages with different hero
+              styles, feature sections and pricing layouts.
+            </p>
+            <div class="mt-auto flex justify-between items-center text-[11px] text-slate-300">
+              <div class="flex flex-wrap gap-1">
+                <span class="px-2 py-0.5 rounded-full bg-slate-800">HTML</span>
+                <span class="px-2 py-0.5 rounded-full bg-slate-800">Tailwind</span>
+              </div>
+              <a href="https://landing-templates-sarthak.netlify.app" class="text-accent-500 hover:underline" target="_blank" rel="noopener">
+                View live
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Backend demo -->
+        <article class="bg-slate-900/60 border border-slate-800 rounded-2xl overflow-hidden flex flex-col">
+          <div class="h-40 bg-slate-800">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREWxCvyFiBXcMNeo2ULV7_mIlbe9oKNnJHZtNLqHiqLxPCIBrL14GiS7GO&s=10"
+              alt="Auth demo preview"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-4 flex flex-col gap-2 flex-1">
+            <h3 class="font-semibold text-sm md:text-base">Auth demo (login / signup)</h3>
+            <p class="text-xs md:text-sm text-slate-300">
+              A small Node.js + Express + SQLite project with signup, login and
+              a protected dashboard, built to learn how full authentication works.
+            </p>
+            <div class="mt-auto flex justify-between items-center text-[11px] text-slate-300">
+              <div class="flex flex-wrap gap-1">
+                <span class="px-2 py-0.5 rounded-full bg-slate-800">Node.js</span>
+                <span class="px-2 py-0.5 rounded-full bg-slate-800">Express</span>
+                <span class="px-2 py-0.5 rounded-full bg-slate-800">SQLite</span>
+              </div>
+              <a href="https://auth-demo-sarthak.netlify.app/" class="text-accent-500 hover:underline" target="_blank" rel="noopener">
+                Open demo
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Live examples -->
+    <section id="examples" class="max-w-5xl mx-auto px-4 py-10">
+      <h2 class="text-xl md:text-2xl font-semibold mb-4">Live examples</h2>
+      <p class="text-sm text-slate-400 mb-6">
+        These are separate deployed sites you can click and open. Each one uses
+        the same general style but with different purposes.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-5 text-sm">
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 flex flex-col">
+          <p class="font-semibold mb-1">Portfolio homepage</p>
+          <p class="text-slate-300 text-xs mb-3">
+            This main site, built with HTML and Tailwind and hosted on Netlify.
+          </p>
+          <a href="https://webbysarthak.netlify.app" class="text-accent-500 text-xs mt-auto hover:underline" target="_blank" rel="noopener">
+            Open site
+          </a>
+        </div>
+
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 flex flex-col">
+          <p class="font-semibold mb-1">Template gallery</p>
+          <p class="text-slate-300 text-xs mb-3">
+            Page that shows multiple templates and layouts together.
+          </p>
+          <a href="https://templates-gallery-sarthak.netlify.app/" class="text-accent-500 text-xs mt-auto hover:underline" target="_blank" rel="noopener">
+            Open site
+          </a>
+        </div>
+
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 flex flex-col">
+          <p class="font-semibold mb-1">Backend auth demo</p>
+          <p class="text-slate-300 text-xs mb-3">
+            Deployed version of the login/signup project with a real backend.
+          </p>
+          <a href="https://auth-demo-sarthak.netlify.app" class="text-accent-500 text-xs mt-auto hover:underline" target="_blank" rel="noopener">
+            Open app
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="max-w-5xl mx-auto px-4 py-10">
+      <h2 class="text-xl md:text-2xl font-semibold mb-4">Education</h2>
+      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 md:p-5 text-sm">
+        <h3 class="font-semibold mb-1">10th grade · CBSE</h3>
+        <p class="text-slate-400 mb-3">
+          Focusing on school while learning web development in parallel.
+        </p>
+        <ul class="text-slate-300 text-xs md:text-sm space-y-1.5">
+          <li>• Learning modern web basics beyond the school syllabus.</li>
+          <li>• Building small real-world style projects instead of only watching tutorials.</li>
+          <li>• Starting backend early to understand how full-stack work fits together.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="max-w-5xl mx-auto px-4 py-10">
+      <h2 class="text-xl md:text-2xl font-semibold mb-4">Contact</h2>
+      <p class="text-sm md:text-base text-slate-300 mb-5">
+        I’m open to internships, project work and feedback on my layouts or code.
+        If something here looks interesting, feel free to reach out.
+      </p>
+
+      <div class="grid gap-6 md:grid-cols-2 text-sm">
+        <div class="space-y-3">
+          <div>
+            <p class="text-slate-400">Email</p>
+            <a href="mailto:sniperftw2021@gmail.com" class="text-accent-500 hover:underline">
+              sniperftw2021@gmail.com
+            </a>
+          </div>
+          <div>
+            <p class="text-slate-400">Location</p>
+            <p class="text-slate-300">India</p>
+          </div>
+          <div>
+            <p class="text-slate-400">Links</p>
+            <div class="flex flex-wrap gap-3 mt-1">
+              <a href="https://github.com/CrimsonHatesWork" class="text-accent-500 hover:underline text-sm">GitHub</a>
+		<a href="https://instagram.com/sar.thak.jha" class="text-accent-500 hover:underline text-sm">Instagram</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Netlify form -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-5">
+          <p class="text-xs text-slate-400 mb-3">
+            You can also send a short message directly from here.
+          </p>
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            class="space-y-3 text-sm"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <div>
+              <label class="block text-xs text-slate-300 mb-1">Name</label>
+              <input
+                type="text"
+                name="name"
+                class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-accent-500"
+                required
+              />
+            </div>
+            <div>
+              <label class="block text-xs text-slate-300 mb-1">Email</label>
+              <input
+                type="email"
+                name="email"
+                class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-accent-500"
+                required
+              />
+            </div>
+            <div>
+              <label class="block text-xs text-slate-300 mb-1">Message</label>
+              <textarea
+                name="message"
+                rows="4"
+                class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-accent-500"
+                required
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-accent-500 text-slate-950 text-xs font-semibold py-2 rounded-lg hover:bg-accent-500/90 transition-colors"
+            >
+              Send message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 py-4 text-xs text-slate-500 flex flex-col md:flex-row gap-2 md:items-center md:justify-between">
+      <p>&copy; 2025 Sarthak Jha. All rights reserved.</p>
+      <p>Built with HTML, Tailwind CSS and a small amount of JavaScript. Hosted on Netlify.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll effect
+    const header = document.getElementById('site-header');
+    const heroHeight = 120;
+
+    function updateHeader() {
+      if (window.scrollY > heroHeight) {
+        header.classList.add('bg-slate-950/90', 'backdrop-blur', 'border-b', 'border-slate-800');
+      } else {
+        header.classList.remove('bg-slate-950/90', 'backdrop-blur', 'border-b', 'border-slate-800');
+      }
+    }
+
+    window.addEventListener('scroll', updateHeader);
+    updateHeader();
+
+    // Mobile menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    }
+  </script>
+</body>
+</html>
