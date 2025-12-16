@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sarthak | Auth Demo</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center">
+  <div class="w-full max-w-md px-6 py-8 bg-slate-900/80 border border-slate-800 rounded-2xl shadow-xl">
+    <h1 class="text-xl font-semibold mb-1 text-center">Auth demo</h1>
+    <p class="text-xs text-slate-400 mb-6 text-center">
+      Use email <span class="font-mono text-slate-200">demo@groww.dev</span> and
+      password <span class="font-mono text-slate-200">password123</span>.
+    </p>
+
+    <form id="login-form" class="space-y-4">
+      <div>
+        <label class="block text-xs mb-1">Email</label>
+        <input
+          type="email"
+          name="email"
+          class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-sky-500"
+          required
+        />
+      </div>
+      <div>
+        <label class="block text-xs mb-1">Password</label>
+        <input
+          type="password"
+          name="password"
+          class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-sky-500"
+          required
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="w-full bg-sky-500 text-slate-950 font-semibold text-sm py-2 rounded-lg hover:bg-sky-400 transition-colors"
+      >
+        Log in
+      </button>
+
+      <p id="login-status" class="text-xs text-center mt-2 text-slate-400"></p>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('login-form');
+    const statusEl = document.getElementById('login-status');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      statusEl.textContent = 'Checking...';
+
+      const formData = new FormData(form);
+      const payload = {
+        email: formData.get('email'),
+        password: formData.get('password'),
+      };
+
+      try {
+        const res = await fetch('/.netlify/functions/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({}));
+          statusEl.textContent = err.message || 'Login failed.';
+          statusEl.classList.remove('text-sky-400');
+          statusEl.classList.add('text-red-400');
+          return;
+        }
+
+        const data = await res.json();
+        // store fake token and email in localStorage
+        localStorage.setItem('auth_token', data.token);
+        localStorage.setItem('auth_email', data.email);
+
+        statusEl.textContent = 'Success. Redirecting...';
+        statusEl.classList.remove('text-red-400');
+        statusEl.classList.add('text-sky-400');
+
+        setTimeout(() => {
+          window.location.href = '/dashboard.html';
+        }, 700);
+      } catch (err) {
+        statusEl.textContent = 'Network error.';
+        statusEl.classList.remove('text-sky-400');
+        statusEl.classList.add('text-red-400');
+      }
+    });
+  </script>
+</body>
+</html>
